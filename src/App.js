@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Header from './components/Header'
+import Form from './components/Form'
 function App() {
   return (
-    <div className="App">
-     <Header 
-      title='payments for loan'
-     />  
+    <Fragment>
+     <Header title='payments for loan'/>  
+     <div className="container">
+     <Form/>
     </div>
+    </Fragment>
   );
 }
 
