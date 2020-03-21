@@ -1,15 +1,22 @@
-import React from 'react';
+import React,{useState} from 'react';
 
-const  Form= () => {
+const  Form= ({amount,saveAmount}) => {
+    
+    const readAmount = (e)=>{
+        saveAmount(parseInt(e.target.value))
+    }
+
     return ( 
         <form>
+            {amount}
           <div className="row">
               <div>
                   <label>Cantidad Prestamo</label>
                   <input 
                       className="u-full-width" 
                       type="number" 
-                      placeholder="Ejemplo: 3000" 
+                      placeholder="Ejemplo: 3000"
+                      onChange={readAmount} 
                   />
               </div>
               <div>
