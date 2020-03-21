@@ -1,14 +1,17 @@
 import React,{useState} from 'react';
 
-const  Form= ({amount,saveAmount}) => {
+const  Form= ({amount,saveAmount,time,saveTime}) => {
     
     const readAmount = (e)=>{
         saveAmount(parseInt(e.target.value))
     }
 
+    const readTime = (e) =>{
+        saveTime(parseInt(e.target.value))
+    }
+
     return ( 
         <form>
-            {amount}
           <div className="row">
               <div>
                   <label>Cantidad Prestamo</label>
@@ -23,6 +26,7 @@ const  Form= ({amount,saveAmount}) => {
                   <label>Plazo para Pagar</label>
                   <select 
                       className="u-full-width"
+                      onChange={readTime}
                   >
                       <option value="">Seleccionar</option>
                       <option value="3">3 meses</option>
