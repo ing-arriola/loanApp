@@ -1,7 +1,12 @@
 import React,{useState} from 'react';
 
 const  Form= ({amount,saveAmount,time,saveTime}) => {
-    
+   
+    //Define state
+    const [error,saveError]=useState(false) //Here the value of false using destructuring is related
+    //with the error var because when the app starts there are no error, but when the user inserts data
+    //it could has an error so the var error turns to true when an error happens
+
     const readAmount = (e)=>{
         saveAmount(parseInt(e.target.value))
     }
@@ -10,8 +15,18 @@ const  Form= ({amount,saveAmount,time,saveTime}) => {
         saveTime(parseInt(e.target.value))
     }
 
+    const calculateLoan = e =>{
+        e.preventDefault()
+        if(amount===0 || time===''){
+            saveError(true)
+        }else{
+
+        }
+        
+    }
+
     return ( 
-        <form>
+        <form onSubmit={calculateLoan}>
           <div className="row">
               <div>
                   <label>Cantidad Prestamo</label>
