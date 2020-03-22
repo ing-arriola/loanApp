@@ -24,8 +24,8 @@ const  Form= ({amount,saveAmount,time,saveTime}) => {
             saveError(false)
         }
 
-        calculateTotal(amount,time)
-
+        const totalToPay= calculateTotal(amount,time)
+        alert(totalToPay)
         
         
     }

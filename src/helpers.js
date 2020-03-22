@@ -1,5 +1,6 @@
 export function calculateTotal(amount,time){
     let interest
+    let interestForTime
 
     switch (true) {
         case (amount<1000):
@@ -15,5 +16,24 @@ export function calculateTotal(amount,time){
             interest=amount*.10
             break;
     }
-    alert(interest)
+
+    switch (time) {
+        case 3:
+            interestForTime=amount*.05    
+            break;
+        case 6:
+            interestForTime=amount*.10
+            break;
+        case 12:
+            interestForTime=amount*.15
+            break;
+        case 24:
+            interestForTime=amount*.20
+            break;
+        default :
+            break
+    }
+
+    return interest+interestForTime+amount
+    
 }
