@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{Fragment,useState} from 'react';
 
 const  Form= ({amount,saveAmount,time,saveTime}) => {
    
@@ -20,12 +20,15 @@ const  Form= ({amount,saveAmount,time,saveTime}) => {
         if(amount===0 || time===''){
             saveError(true)
         }else{
-
+            saveError(false)
         }
+
+        
         
     }
 
     return ( 
+        <Fragment>
         <form onSubmit={calculateLoan}>
           <div className="row">
               <div>
@@ -58,7 +61,12 @@ const  Form= ({amount,saveAmount,time,saveTime}) => {
                   />
               </div>
           </div>
-  </form>
+        </form>
+
+        {(error)? <p className='error' >You must complete all the fields</p> :''}
+        
+
+    </Fragment>
      );
 }
  
