@@ -5,6 +5,7 @@ function App() {
 
   const [amount,saveAmount]= useState(0)
   const [time,saveTime]= useState('')
+  const [total,saveTotal]=useState(0)
   
   return (
     <Fragment>
@@ -15,9 +16,17 @@ function App() {
       saveAmount={saveAmount}
       time={time}
       saveTime={saveTime}
+      total={total}
+      saveTotal={saveTotal}
      />
+
+  <p>Total tobe payed: ${total}</p>
     </div>
+
+    
+
     </Fragment>
+    
   );
 }
 
