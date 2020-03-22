@@ -1,4 +1,5 @@
 import React,{Fragment,useState} from 'react';
+import {calculateTotal} from '../helpers'
 
 const  Form= ({amount,saveAmount,time,saveTime}) => {
    
@@ -22,6 +23,8 @@ const  Form= ({amount,saveAmount,time,saveTime}) => {
         }else{
             saveError(false)
         }
+
+        calculateTotal(amount,time)
 
         
         
