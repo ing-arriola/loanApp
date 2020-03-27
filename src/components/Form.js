@@ -2,7 +2,7 @@ import React,{Fragment,useState} from 'react';
 import {calculateTotal} from '../helpers'
 
 const  Form= (props) => {
-    const {amount,saveAmount,time,saveTime,totalPayment,saveTotal}=props
+    const {amount,saveAmount,time,saveTime,totalPayment,saveTotal,saveLoading}=props
     //Define state
     const [error,saveError]=useState(false) //Here the value of false using destructuring is related
     //with the error var because when the app starts there are no error, but when the user inserts data
@@ -16,6 +16,8 @@ const  Form= (props) => {
         saveTime(parseInt(e.target.value))
     }
 
+    
+
     const calculateLoan = e =>{
         e.preventDefault()
         if(amount===0 || time===''){
@@ -23,9 +25,18 @@ const  Form= (props) => {
         }else{
             saveError(false)
         }
+        //Enabling spinner
+        saveLoading(true)
 
-        const total= calculateTotal(amount,time)
-        saveTotal(total)
+        setTimeout(() => {
+            //Do calculations & save calculations
+            const total= calculateTotal(amount,time)    
+            saveTotal(total)
+            
+            saveLoading(false)
+        }, 3000);
+
+        
         
     }
 
